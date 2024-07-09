@@ -13,10 +13,14 @@ class Catalogo:
     else:
       self.products.append(product)
 
-  def search_by_id(self, id:str):
+  def search_by_id(self, id:str, print_result = None):
     result = [p for p in self.products if p.id == id]
-    print("-------------------------")
-    print("Prodotto Trovato:", result[0], end="\n-----------------------") if result else print(F"Nessun Risultato Trovato con la ricerca '{id}'")
+    if result: 
+      return result[0]
+    if print_result:
+      print("-------------------------")
+      print("Prodotto Trovato:", result[0], end="\n-----------------------") if result else print(F"Nessun Risultato Trovato con la ricerca '{id}'")
+
     
   def mostra(self, year:int|None = None):
     if year:
@@ -27,3 +31,10 @@ class Catalogo:
       print("-------------------------")
       print(F"Catalogo  {self.name}\n")
       [print(p) for p in self.products]
+      
+  def remove_by_id(self, id:str):
+    item = self.search_by_id(id)
+    if item:
+      self.products.remove(item)
+      print("-------------------------")
+      print(F"Rimosso: {item}")  
