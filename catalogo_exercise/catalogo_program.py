@@ -50,5 +50,9 @@ c.mostra(2024)
 # P124 | Scarpe ultimo modello | 2024 | 250
 # V458 | Maglia nuovissima | 2024 | 300 | ["XS", "S", "M", "L", "XL"]
 # B127 | Borsa economica | 2024 | 50 | Plastica
-c.search_by_id("P134")
-c.search_by_id("P124")
+c.search_by_id("P134", print_result = True)
+c.search_by_id("P124", print_result = True)
+
+c.remove_by_id("V458")
+
+c.mostra(2024)
